@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NaveController : MonoBehaviour
+public class NaveController : MonoBehaviour, IDamagable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Damage(int amount)
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
         
     }
