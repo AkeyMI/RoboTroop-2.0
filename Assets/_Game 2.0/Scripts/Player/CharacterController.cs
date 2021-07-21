@@ -37,11 +37,6 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         float h = Input.GetAxisRaw("Horizontal");

@@ -12,6 +12,8 @@ public class ShootController : MonoBehaviour
     [SerializeField] int damage = 1;
     //[SerializeField] ItemDistance item = default;
 
+    private MinionData data;
+
     private int currentAmmo;
     private bool isReloading = false;
 
@@ -20,6 +22,7 @@ public class ShootController : MonoBehaviour
     private void Start()
     {
         //currentAmmo = item.ammo;
+        currentAmmo = ammo;
     }
 
     private void Update()
@@ -27,6 +30,11 @@ public class ShootController : MonoBehaviour
         //if (!CanShoot()) return;
 
         ShootOrReload();
+    }
+
+    private void OnEnable()
+    {
+        isReloading = false;
     }
 
     private void ShootOrReload()
@@ -53,17 +61,6 @@ public class ShootController : MonoBehaviour
             StartCoroutine(Reload());
         }
     }
-
-    //private bool CanShoot()
-    //{
-    //    if (minionUi == null)
-    //        minionUi = FindObjectOfType<MinionUiController>();
-
-    //    if (minionUi != null && minionUi.gameObject.activeInHierarchy)
-    //        return false;
-
-    //    return true;
-    //}
 
     IEnumerator Reload()
     {

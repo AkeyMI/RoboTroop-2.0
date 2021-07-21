@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour, IDamagable
 
     //private EnemyStats currentStats;
 
+    private WaveController waveController;
+
     public Rigidbody Rb => rb;
     public EnemyStats Stats => enemyStats;
 
@@ -33,6 +35,12 @@ public class EnemyController : MonoBehaviour, IDamagable
         rb = GetComponent<Rigidbody>();
         //ChangeSpawnPoint(this.gameObject.transform.position);
         TransitionToState(HuntState);
+    }
+
+    public void Init(WaveController waveController)
+    {
+        this.waveController = waveController;
+        waveController.AddEnemy();
     }
 
     private void Update()
@@ -71,6 +79,7 @@ public class EnemyController : MonoBehaviour, IDamagable
 
         if (life <= 0)
         {
+            waveController.KilledEnemy();
             Destroy(this.gameObject);
         }
     }
