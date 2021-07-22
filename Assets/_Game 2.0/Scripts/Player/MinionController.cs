@@ -6,13 +6,17 @@ public class MinionController : MonoBehaviour
 {
     [SerializeField] MinionData minion1 = default;
     [SerializeField] MinionDefenceData minion2 = default;
+    [SerializeField] MinionItemData minion3 = default;
     [SerializeField] GameObject minionArt = default;
 
     private GameObject minionAtk;
     private GameObject minionShield;
     private GameObject minionItem;
+    private MinionItemData itemData;
 
     private bool minionChange = false;
+
+    private bool firstItemMinion = true;
 
     private void Start()
     {
@@ -87,8 +91,11 @@ public class MinionController : MonoBehaviour
         }
     }
 
-    public void ChangeItemMinion()
+    public void ChangeItemMinion(MinionItemData data)
     {
-
+        Destroy(minionItem);
+        itemData = data;
+        minionItem = Instantiate(itemData.minionPrefab, Vector3.zero, Quaternion.identity);
+        minionItem.transform.SetParent(minionArt.transform, false);
     }
 }
