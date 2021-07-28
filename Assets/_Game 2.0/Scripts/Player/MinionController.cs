@@ -14,9 +14,13 @@ public class MinionController : MonoBehaviour
     private GameObject minionItem;
     private MinionItemData itemData;
 
+    private int currentReloadUlti;
+
     private bool minionChange = false;
 
-    private bool firstItemMinion = true;
+    private bool canUseUlti;
+
+    //private bool firstItemMinion = true;
 
     private void Start()
     {
@@ -52,7 +56,28 @@ public class MinionController : MonoBehaviour
 
     private void UseMinion()
     {
+        if (!CanUseUlti()) return;
 
+        //canUseUlti = false;
+        currentReloadUlti = itemData.reloadUlti;
+        itemData.effect.Apply();
+    }
+
+    private bool CanUseUlti()
+    {
+        if(currentReloadUlti > 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void ReloadUlti()
+    {
+        currentReloadUlti--;
     }
 
     public void ChangeAtkMinion(MinionData data)
@@ -97,5 +122,6 @@ public class MinionController : MonoBehaviour
         itemData = data;
         minionItem = Instantiate(itemData.minionPrefab, Vector3.zero, Quaternion.identity);
         minionItem.transform.SetParent(minionArt.transform, false);
+        currentReloadUlti = itemData.reloadUlti;
     }
 }

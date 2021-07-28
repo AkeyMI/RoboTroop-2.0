@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHuntState : EnemyBaseState
 {
@@ -8,8 +9,9 @@ public class EnemyHuntState : EnemyBaseState
     private float speed;
     private Vector3 newDirection;
     private Vector3 newPosition;
-    private bool thereIsNotPLayer;
+    //private bool thereIsNotPLayer;
     private Collider playercol;
+    private NavMeshAgent agent;
 
     public override void EnterState(EnemyController enemy)
     {
@@ -48,11 +50,15 @@ public class EnemyHuntState : EnemyBaseState
 
     private void HuntingPLayer(Collider player)
     {
-        speed = enemyController.Stats.speed * Time.deltaTime;
-        newPosition = player.transform.position;
-        newPosition.y = enemyController.transform.position.y;
-        newDirection = newPosition - enemyController.transform.position;
-        enemyController.transform.LookAt(newPosition);
-        enemyController.transform.position += newDirection * speed;
+        //speed = enemyController.Stats.speed * Time.deltaTime;
+        //newPosition = player.transform.position;
+        //newPosition.y = enemyController.transform.position.y;
+        //newDirection = newPosition - enemyController.transform.position;
+        //enemyController.transform.LookAt(newPosition);
+        //enemyController.transform.position += newDirection * speed;
+
+        agent = enemyController.Agent;
+
+        agent.SetDestination(player.transform.position);
     }
 }

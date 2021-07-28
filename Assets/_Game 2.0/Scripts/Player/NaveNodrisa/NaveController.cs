@@ -14,6 +14,13 @@ public class NaveController : MonoBehaviour, IDamagable
     private int currentShieldLife;
     private CharacterController player;
 
+    private Stunable stunStatus;
+
+    private void Awake()
+    {
+        stunStatus = GetComponent<Stunable>();
+    }
+
     private void Start()
     {
         currentLife = life;
@@ -23,6 +30,17 @@ public class NaveController : MonoBehaviour, IDamagable
 
     private void Update()
     {
+        if (stunStatus.IsStunned)
+        {
+            agent.isStopped = true;
+            return;
+        }
+        else
+        {
+            agent.isStopped = false;
+        }
+       
+
         MoveNave();
     }
 
@@ -51,13 +69,23 @@ public class NaveController : MonoBehaviour, IDamagable
         }
     }
 
-    public void HealNave()
+    public void HealNave(int amount)
     {
+        currentLife += amount;
 
+        if(currentLife >= life)
+        {
+            currentLife = life;
+        }
     }
 
-    public void RepairShield()
+    public void RepairShield(int amount)
     {
+        currentShieldLife += amount;
 
+        if(currentShieldLife >= shieldLife)
+        {
+            currentShieldLife = shieldLife;
+        }
     }
 }

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour, IDamagable
 {
     [SerializeField] GameObject spawnPointBullet = default;
     [SerializeField] EnemyStats enemyStats = default;
+    [SerializeField] NavMeshAgent agent = default;
 
     //private EnemyStats currentStats;
 
@@ -13,6 +15,8 @@ public class EnemyController : MonoBehaviour, IDamagable
 
     public Rigidbody Rb => rb;
     public EnemyStats Stats => enemyStats;
+
+    public NavMeshAgent Agent => agent;
 
     //public Vector3 PositionSpawn => positionSpawn;
 

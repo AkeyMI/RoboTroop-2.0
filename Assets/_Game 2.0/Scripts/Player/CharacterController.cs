@@ -32,13 +32,18 @@ public class CharacterController : MonoBehaviour
 
     private bool canDash = true;
 
+    private Stunable stunStatus;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        stunStatus = GetComponent<Stunable>();
     }
 
     private void Update()
     {
+        if (stunStatus.IsStunned) return;
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 

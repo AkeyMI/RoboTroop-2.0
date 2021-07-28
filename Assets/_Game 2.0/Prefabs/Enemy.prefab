@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8489901242466351675}
   - component: {fileID: 8489901242466351674}
   - component: {fileID: 8489901242466351669}
+  - component: {fileID: 7116771531642242373}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7f5ecbf7c1bef6e4684943ed17e78296, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,6 +129,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPointBullet: {fileID: 8489901242894617667}
   enemyStats: {fileID: 11400000, guid: 9c926a2386f3ac743905bf035fc0dc0c, type: 2}
+  agent: {fileID: 0}
+--- !u!195 &7116771531642242373
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489901242466351668}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.51
+  m_BaseOffset: 1.96
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8489901242894617667
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
     [SerializeField] float speed = 8f;
+    [SerializeField] float timeStun = 5f;
 
     private int damage;
     private Rigidbody rb;
@@ -30,6 +31,17 @@ public class BulletEnemy : MonoBehaviour
         if (other.CompareTag("Nave"))
         {
             other.GetComponent<NaveController>().Damage(damage);
+            other.GetComponent<Stunable>().Stun(timeStun);
+        }
+        else if(other.CompareTag("Player"))
+        {
+            other.GetComponent<Stunable>().Stun(timeStun);
+        }
+        else if(other.CompareTag("ShieldNave"))
+        {
+            //FindObjectOfType<NaveController>().ShieldDamage(damage);
+            other.GetComponentInParent<NaveController>().ShieldDamage(damage);
+            other.GetComponentInParent<Stunable>().Stun(timeStun);
         }
 
         Destroy(this.gameObject);
