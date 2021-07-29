@@ -11,6 +11,7 @@ public class RoomTrigger : MonoBehaviour
         if(other.CompareTag("Nave"))
         {
             room.ActivateRoom();
+            this.gameObject.SetActive(false);
         }
     }
 }

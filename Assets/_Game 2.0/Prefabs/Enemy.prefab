@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPointBullet: {fileID: 8489901242894617667}
   enemyStats: {fileID: 11400000, guid: 9c926a2386f3ac743905bf035fc0dc0c, type: 2}
-  agent: {fileID: 0}
+  agent: {fileID: 7116771531642242373}
 --- !u!195 &7116771531642242373
 NavMeshAgent:
   m_ObjectHideFlags: 0
