@@ -7,17 +7,44 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] Stunable stunable;
     [SerializeField] Image stunBarImage;
+    [SerializeField] Image minion1Ui;
+    [SerializeField] Image minion2Ui;
+
+    private Image minionAtkImage;
+    private Image minionShieldImage;
+
+    private MinionController minionController;
+
+    private void Awake()
+    {
+        minionController = FindObjectOfType<MinionController>().GetComponent<MinionController>();
+    }
+
+    private void Start()
+    {
+        //minionController = FindObjectOfType<MinionController>().GetComponent<MinionController>();
+        minionAtkImage = minion1Ui;
+        minionShieldImage = minion2Ui;
+    }
 
     private void OnEnable()
     {
-        stunable.onStunStarted += StartStunBar;
-        stunable.onStunFinished += StopStun;
+        //stunable.onStunStarted += StartStunBar;
+        //stunable.onStunFinished += StopStun;
+        minionController.onChengeMinion += ChangeUiMinion;
     }
 
     private void OnDisable()
     {
-        stunable.onStunStarted -= StartStunBar;
-        stunable.onStunFinished -= StopStun;
+        //stunable.onStunStarted -= StartStunBar;
+        //stunable.onStunFinished -= StopStun;
+        minionController.onChengeMinion -= ChangeUiMinion;
+    }
+
+    private void ChangeUiMinion(bool minionToChange)
+    {
+        minionAtkImage.enabled = minionToChange;
+        minionShieldImage.enabled = !minionToChange;
     }
 
     private void StartStunBar(float time)

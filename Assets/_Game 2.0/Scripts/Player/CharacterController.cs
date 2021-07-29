@@ -34,7 +34,7 @@ public class CharacterController : MonoBehaviour
 
     private Stunable stunStatus;
 
-    public ParticleSystem dashefect;
+    [SerializeField] ParticleSystem dashefect;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

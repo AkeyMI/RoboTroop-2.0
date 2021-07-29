@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class MinionController : MonoBehaviour
     [SerializeField] MinionDefenceData minion2 = default;
     [SerializeField] MinionItemData minion3 = default;
     [SerializeField] GameObject minionArt = default;
+
+    public event Action<bool> onChengeMinion; 
 
     private GameObject minionAtk;
     private GameObject minionShield;
@@ -48,6 +51,7 @@ public class MinionController : MonoBehaviour
     private void ChangeMinion()
     {
         minionAtk.SetActive(minionChange);
+        onChengeMinion?.Invoke(minionChange);
 
         minionChange = !minionChange;
 
