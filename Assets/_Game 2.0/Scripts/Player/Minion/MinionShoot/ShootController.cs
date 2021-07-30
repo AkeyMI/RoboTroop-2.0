@@ -11,7 +11,7 @@ public class ShootController : MonoBehaviour
     [SerializeField] float timeToReload = 1f;
     [SerializeField] int damage = 1;
     //[SerializeField] ItemDistance item = default;
-
+    [SerializeField] Animator animator;
     private MinionData data;
 
     private int currentAmmo;
@@ -61,7 +61,12 @@ public class ShootController : MonoBehaviour
             StartCoroutine(Reload());
         }
     }
-
+    IEnumerator Shooting()
+    {
+        animator.SetBool("Shooting", true);
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("Shooting", false);
+    }
     IEnumerator Reload()
     {
         Debug.Log("Esta recargando");
@@ -82,6 +87,7 @@ public class ShootController : MonoBehaviour
             bullet.GetComponent<Bullet>().Init(damage);
             timeOfLastAttack = Time.time + timeForAttack;
             currentAmmo--;
+            StartCoroutine(Shooting());
         }
     }
 
