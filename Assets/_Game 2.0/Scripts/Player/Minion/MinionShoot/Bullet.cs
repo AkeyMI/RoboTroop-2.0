@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed = 8f;
-
+    [SerializeField] GameObject particulas;
     private int damage;
     private Rigidbody rb;
 
@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+            Instantiate<GameObject>(particulas).transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
     }

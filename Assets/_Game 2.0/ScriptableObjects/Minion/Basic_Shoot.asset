@@ -18,4 +18,4 @@ MonoBehaviour:
   damage: 2
   ammo: 5
   timeToReload: 1
-  timeForAttack: 0.5
+  timeForAttack: 0.6
