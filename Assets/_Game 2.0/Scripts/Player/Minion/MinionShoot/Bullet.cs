@@ -32,9 +32,13 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Enemy Hit");
         }
+        if (other.CompareTag("Player"))
+        {
+            return;
+        }
         else
         {
-            Instantiate<GameObject>(particulas).transform.position = this.transform.position;
+            Instantiate<GameObject>(particulas).transform.position = this.transform.position;//Instanciar 
             Destroy(this.gameObject);
         }
     }

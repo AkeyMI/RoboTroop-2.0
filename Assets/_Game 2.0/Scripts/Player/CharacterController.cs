@@ -34,7 +34,7 @@ public class CharacterController : MonoBehaviour
 
     private Stunable stunStatus;
 
-    [SerializeField] ParticleSystem dashefect;
+    [SerializeField] ParticleSystem dashefect; //Particulas
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -125,7 +125,7 @@ public class CharacterController : MonoBehaviour
             currentDashTime = dashTime;
             canDash = false;
             currentTimeBetweenDash = timeBetweenDash;
-            dashefect.Play(dashefect);
+            dashefect.Play(dashefect);                  //Play particulas
         }
     }
 
