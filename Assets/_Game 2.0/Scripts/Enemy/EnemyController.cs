@@ -84,6 +84,7 @@ public class EnemyController : MonoBehaviour, IDamagable
         if (life <= 0)
         {
             waveController.KilledEnemy();
+            FindObjectOfType<MinionController>().ReloadUlti();
             Destroy(this.gameObject);
         }
     }
