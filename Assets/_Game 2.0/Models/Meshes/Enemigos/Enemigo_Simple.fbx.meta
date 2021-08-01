@@ -3,7 +3,17 @@ guid: 7a03287993fcd1842853f02b537ffe75
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Enemigo_Simple_Body
+    second: {fileID: 2100000, guid: aecbff0a6dd59a44f94f451c0f175abc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Enemigo_Simple_Face
+    second: {fileID: 2100000, guid: 5a882f9c3227c3a47a3583bdd78238df, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 100
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

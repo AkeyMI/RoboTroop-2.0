@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c6a4123dcdcea84b8034f7ad7d2ffe3
+guid: 4314150670d91f54f92fd1f59f621686
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Kamikaze_Body
-    second: {fileID: 2100000, guid: 15634eee72582c347821d3925d1ea102, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Kamikaze_Face
-    second: {fileID: 2100000, guid: 0ce425835cb509f4eaaf0c651b5e36dd, type: 2}
+      name: M_Enemigo_Cohete
+    second: {fileID: 2100000, guid: d906ad10823c87d4fb47281025f515d1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -95,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 100
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

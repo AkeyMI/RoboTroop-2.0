@@ -3,7 +3,17 @@ guid: 17eb4fe920f7719428c884d62a2ab769
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HavyMachineGuy_Body
+    second: {fileID: 2100000, guid: db214c09624c8474bbcc171e4625c22c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HavyMachineGuy_Face
+    second: {fileID: 2100000, guid: d97e2a98540545c4293067ecd959e93f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 100
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
