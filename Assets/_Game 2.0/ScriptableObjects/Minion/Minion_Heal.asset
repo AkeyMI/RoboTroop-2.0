@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b629e37a0c3314eb3ab612d8b8b62e, type: 3}
   m_Name: Minion_Heal
   m_EditorClassIdentifier: 
-  minionName: 
+  minionName: Heal Minion
   minionPrefab: {fileID: 0}
   effect: {fileID: 0}
   reloadUlti: 3

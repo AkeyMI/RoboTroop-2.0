@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8318428373976458456}
   - component: {fileID: 3154622452791347591}
   m_Layer: 0
-  m_Name: "Ca\xF1on"
+  m_Name: CanyonGuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

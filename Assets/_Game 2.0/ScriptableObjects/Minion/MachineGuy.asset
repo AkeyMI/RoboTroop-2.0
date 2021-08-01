@@ -18,5 +18,5 @@ MonoBehaviour:
   damage: 1
   ammo: 15
   timeToReload: 1
-  timeForAttack: 0.1
+  timeForAttack: 0.15
   bulletSpeed: 15
