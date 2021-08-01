@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float speed = 8f;
+    //[SerializeField] float speed = 8f;
     [SerializeField] GameObject particulas;
     private int damage;
     private Rigidbody rb;
+    private float currentSpeed;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void Init(int amount)
+    public void Init(int amount, float speed)
     {
         damage = amount;
+        currentSpeed = speed;
     }
 
     private void Start()
     {
-        rb.velocity = transform.forward * speed;
+        rb.velocity = transform.forward * currentSpeed;
     }
 
     private void OnTriggerEnter(Collider other)

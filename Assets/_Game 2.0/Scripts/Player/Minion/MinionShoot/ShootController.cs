@@ -84,7 +84,7 @@ public class ShootController : MonoBehaviour
         if (Time.time > timeOfLastAttack)
         {
             GameObject bullet = Instantiate(data.bulletPrefab, spawnBullet.transform.position, spawnBullet.transform.rotation);
-            bullet.GetComponent<Bullet>().Init(data.damage);
+            bullet.GetComponent<Bullet>().Init(data.damage, data.bulletSpeed);
             timeOfLastAttack = Time.time + data.timeForAttack;
             currentAmmo--;
             StartCoroutine(Shooting());
