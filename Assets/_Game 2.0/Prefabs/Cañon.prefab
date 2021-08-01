@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8318428373976458456}
   - component: {fileID: 3154622452791347591}
   m_Layer: 0
-  m_Name: Shoot
+  m_Name: "Ca\xF1on"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,13 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ea4e359e321d04cabfeccf5d0e43be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8591236588811397447, guid: 8a8432442cfe8b042b965c691f606b05, type: 3}
   spawnBullet: {fileID: 8318428374078878539}
-  timeForAttack: 0.5
-  ammo: 5
-  timeToReload: 1
-  damage: 1
   animator: {fileID: 3154622452791347591}
+  data: {fileID: 11400000, guid: f132ec63a68bde1428a954d027b631ba, type: 2}
 --- !u!95 &3154622452791347591
 Animator:
   serializedVersion: 3

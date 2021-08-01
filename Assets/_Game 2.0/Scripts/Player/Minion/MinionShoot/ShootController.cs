@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab = default;
+    //[SerializeField] GameObject bulletPrefab = default;
     [SerializeField] GameObject spawnBullet = default;
-    [SerializeField] float timeForAttack = 0.5f;
-    [SerializeField] int ammo = 5;
-    [SerializeField] float timeToReload = 1f;
-    [SerializeField] int damage = 1;
+    //[SerializeField] float timeForAttack = 0.5f;
+    //[SerializeField] int ammo = 5;
+    //[SerializeField] float timeToReload = 1f;
+    //[SerializeField] int damage = 1;
     //[SerializeField] ItemDistance item = default;
     [SerializeField] Animator animator;
-    private MinionData data;
+    [SerializeField] MinionData data;
 
     private int currentAmmo;
     private bool isReloading = false;
@@ -22,7 +22,7 @@ public class ShootController : MonoBehaviour
     private void Start()
     {
         //currentAmmo = item.ammo;
-        currentAmmo = ammo;
+        currentAmmo = data.ammo;
     }
 
     private void Update()
@@ -39,7 +39,7 @@ public class ShootController : MonoBehaviour
 
     private void ShootOrReload()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             if (isReloading)
             {
@@ -56,7 +56,7 @@ public class ShootController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < ammo)
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < data.ammo)
         {
             StartCoroutine(Reload());
         }
@@ -72,9 +72,9 @@ public class ShootController : MonoBehaviour
         Debug.Log("Esta recargando");
         isReloading = true;
 
-        yield return new WaitForSeconds(timeToReload);
+        yield return new WaitForSeconds(data.timeToReload);
 
-        currentAmmo = ammo;
+        currentAmmo = data.ammo;
 
         isReloading = false;
     }
@@ -83,9 +83,9 @@ public class ShootController : MonoBehaviour
     {
         if (Time.time > timeOfLastAttack)
         {
-            GameObject bullet = Instantiate(bulletPrefab, spawnBullet.transform.position, spawnBullet.transform.rotation);
-            bullet.GetComponent<Bullet>().Init(damage);
-            timeOfLastAttack = Time.time + timeForAttack;
+            GameObject bullet = Instantiate(data.bulletPrefab, spawnBullet.transform.position, spawnBullet.transform.rotation);
+            bullet.GetComponent<Bullet>().Init(data.damage);
+            timeOfLastAttack = Time.time + data.timeForAttack;
             currentAmmo--;
             StartCoroutine(Shooting());
         }

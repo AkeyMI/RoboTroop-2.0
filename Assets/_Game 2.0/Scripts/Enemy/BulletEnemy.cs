@@ -41,7 +41,11 @@ public class BulletEnemy : MonoBehaviour
         {
             //FindObjectOfType<NaveController>().ShieldDamage(damage);
             other.GetComponentInParent<NaveController>().ShieldDamage(damage);
-            other.GetComponentInParent<Stunable>().Stun(timeStun);
+            //other.GetComponentInParent<Stunable>().Stun(timeStun);
+        }
+        else if(other.CompareTag("MinionShield"))
+        {
+            other.GetComponent<Shield>().ShieldHit(damage);
         }
 
         Destroy(this.gameObject);
