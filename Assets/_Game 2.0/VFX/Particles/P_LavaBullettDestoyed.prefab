@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.35
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -168,7 +168,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -600,7 +600,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 15
+    maxNumParticles: 25
     size3D: 0
     rotation3D: 1
     gravityModifier:
@@ -809,7 +809,7 @@ ParticleSystem:
       speed:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 25.14
+        scalar: 16.5
         minScalar: 1
         maxCurve:
           serializedVersion: 2
@@ -975,7 +975,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 2
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -990,22 +990,22 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.34022102
         - serializedVersion: 3
-          time: 0.34945598
-          value: 0.8844444
-          inSlope: 1.8557943
-          outSlope: 1.8557943
+          time: 0.3085014
+          value: 0.8587219
+          inSlope: 1.5428215
+          outSlope: 1.5428215
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.3280417
-          outWeight: 0.14357392
+          outWeight: 0.12639649
         - serializedVersion: 3
           time: 1
-          value: 0.07362652
-          inSlope: -5.1263433
-          outSlope: -5.1263433
+          value: 0.19258404
+          inSlope: -4.805355
+          outSlope: -4.805355
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.065878965
+          inWeight: 0.054291878
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2

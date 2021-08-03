@@ -7,6 +7,7 @@ public class ShieldController : MonoBehaviour
     [SerializeField] GameObject shield = default;
     [SerializeField] int lifeShield = 15;
     [SerializeField] float timeToReloadShield = 5f;
+    [SerializeField] Animator animator;
 
     private int currentLifeShield;
     private bool shieldIsBroken;
@@ -23,11 +24,13 @@ public class ShieldController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                animator.SetBool("HoldingShield", true);
                 UseShield();
             }
 
             if (Input.GetMouseButtonUp(0))
             {
+                animator.SetBool("HoldingShield", false);
                 OffShield();
             }
         }
