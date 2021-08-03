@@ -10,7 +10,10 @@ public class MinionController : MonoBehaviour
     [SerializeField] MinionItemData minion3 = default;
     [SerializeField] GameObject minionArt = default;
 
-    public event Action<bool> onChengeMinion; 
+    public event Action<bool> onChangeMinion;
+    public event Action<GameObject> onChangeMinionAtkUi;
+    public event Action<GameObject> onChangeMinionShieldUi;
+    public event Action<GameObject> onChangeMinionItemUi;
 
     private GameObject minionAtk;
     private GameObject minionShield;
@@ -29,10 +32,12 @@ public class MinionController : MonoBehaviour
     {
         minionAtk = Instantiate(minion1.minionPrefab, Vector3.zero, Quaternion.identity);
         minionAtk.transform.SetParent(minionArt.transform, false);
+        //onChangeMinionAtkUi?.Invoke(minion1.minionUI);
 
         minionShield = Instantiate(minion2.minionPrefab, Vector3.zero, Quaternion.identity);
         minionShield.transform.SetParent(minionArt.transform, false);
         minionShield.SetActive(false);
+        //onChangeMinionShieldUi?.Invoke(minion2.minionUi);
     }
 
     private void Update()
@@ -51,7 +56,7 @@ public class MinionController : MonoBehaviour
     private void ChangeMinion()
     {
         minionAtk.SetActive(minionChange);
-        onChengeMinion?.Invoke(minionChange);
+        onChangeMinion?.Invoke(minionChange);
 
         minionChange = !minionChange;
 
@@ -98,8 +103,9 @@ public class MinionController : MonoBehaviour
             minionAtk = Instantiate(data.minionPrefab, Vector3.zero, Quaternion.identity);
             minionAtk.transform.SetParent(minionArt.transform, false);
             minionAtk.SetActive(false);
-
         }
+
+        onChangeMinionAtkUi?.Invoke(data.minionUI);
     }
 
     public void ChangeShieldMinion(MinionDefenceData data)
@@ -116,8 +122,9 @@ public class MinionController : MonoBehaviour
             minionShield = Instantiate(data.minionPrefab, Vector3.zero, Quaternion.identity);
             minionShield.transform.SetParent(minionArt.transform, false);
             minionShield.SetActive(false);
-
         }
+
+        onChangeMinionShieldUi?.Invoke(data.minionUi);
     }
 
     public void ChangeItemMinion(MinionItemData data)

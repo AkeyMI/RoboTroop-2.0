@@ -7,11 +7,13 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] Stunable stunable;
     [SerializeField] Image stunBarImage;
-    [SerializeField] Image minion1Ui;
-    [SerializeField] Image minion2Ui;
+    [SerializeField] GameObject minion1Ui;
+    [SerializeField] GameObject minion2Ui;
+    [SerializeField] GameObject minionIconParent;
 
-    private Image minionAtkImage;
-    private Image minionShieldImage;
+    private GameObject minionAtkImage;
+    private GameObject minionShieldImage;
+    private GameObject minionItemImage;
 
     private MinionController minionController;
 
@@ -31,20 +33,61 @@ public class UiManager : MonoBehaviour
     {
         //stunable.onStunStarted += StartStunBar;
         //stunable.onStunFinished += StopStun;
-        minionController.onChengeMinion += ChangeUiMinion;
+        minionController.onChangeMinion += ChangeUiMinion;
+        minionController.onChangeMinionAtkUi += ChangeMinionAtkUi;
+        minionController.onChangeMinionShieldUi += ChangeMinionShieldUi;
+        minionController.onChangeMinionItemUi += ChangeMinionItemUi;
     }
 
     private void OnDisable()
     {
         //stunable.onStunStarted -= StartStunBar;
         //stunable.onStunFinished -= StopStun;
-        minionController.onChengeMinion -= ChangeUiMinion;
+        minionController.onChangeMinion -= ChangeUiMinion;
+        minionController.onChangeMinionAtkUi -= ChangeMinionAtkUi;
+        minionController.onChangeMinionShieldUi -= ChangeMinionShieldUi;
+        minionController.onChangeMinionItemUi -= ChangeMinionItemUi;
     }
 
     private void ChangeUiMinion(bool minionToChange)
     {
-        minionAtkImage.enabled = minionToChange;
-        minionShieldImage.enabled = !minionToChange;
+        minionAtkImage.SetActive(minionToChange);
+        minionShieldImage.SetActive(!minionToChange);
+    }
+
+    private void ChangeMinionAtkUi(GameObject icon)
+    {
+        if(minionAtkImage.activeSelf)
+        {
+            Destroy(minionAtkImage.gameObject);
+            minionAtkImage = Instantiate(icon, minionIconParent.transform);
+        }
+        else
+        {
+            Destroy(minionAtkImage.gameObject);
+            minionAtkImage = Instantiate(icon, minionIconParent.transform);
+            minionAtkImage.SetActive(false);
+        }
+    }
+
+    private void ChangeMinionShieldUi(GameObject icon)
+    {
+        if (minionShieldImage.activeSelf)
+        {
+            Destroy(minionShieldImage.gameObject);
+            minionShieldImage = Instantiate(icon, minionIconParent.transform);
+        }
+        else
+        {
+            Destroy(minionShieldImage.gameObject);
+            minionShieldImage = Instantiate(icon, minionIconParent.transform);
+            minionShieldImage.SetActive(false);
+        }
+    }
+
+    private void ChangeMinionItemUi(GameObject icon)
+    {
+        minionItemImage = icon;
     }
 
     private void StartStunBar(float time)

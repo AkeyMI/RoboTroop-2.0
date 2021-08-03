@@ -15,6 +15,7 @@ MonoBehaviour:
   minionName: Basic Shoot
   minionPrefab: {fileID: 1354599212422573440, guid: dce531f538add2746b34d2de5a4aabed, type: 3}
   bulletPrefab: {fileID: 8591236588811397447, guid: 8a8432442cfe8b042b965c691f606b05, type: 3}
+  minionUI: {fileID: 5264934700255517403, guid: 22176c9d560e6ae4baf55ebab90cbb9f, type: 3}
   damage: 2
   ammo: 5
   timeToReload: 1

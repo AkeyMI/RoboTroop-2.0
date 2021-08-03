@@ -15,6 +15,7 @@ MonoBehaviour:
   minionName: "Ca\xF1on"
   minionPrefab: {fileID: 8318428373976458458, guid: 1a8a3a6812cb90343bc8f117135a0b4e, type: 3}
   bulletPrefab: {fileID: 8591236588811397447, guid: 8a8432442cfe8b042b965c691f606b05, type: 3}
+  minionUI: {fileID: 6399120743567731137, guid: bee7a5de191d78549bf50e3411393fa1, type: 3}
   damage: 5
   ammo: 3
   timeToReload: 1.5

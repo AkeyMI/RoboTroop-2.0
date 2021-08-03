@@ -7,7 +7,7 @@ public class MinionDefenceData : ScriptableObject
 {
     public string minionName = default;
     public GameObject minionPrefab = default;
-    //public GameObject shieldPrefab = default;
+    public GameObject minionUi = default;
 
     public int lifeShield = 15;
     public float timeToReloadShield = 5f;
