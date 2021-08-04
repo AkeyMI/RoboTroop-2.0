@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8489901242466351674}
   - component: {fileID: 8489901242466351669}
   - component: {fileID: 7116771531642242373}
+  - component: {fileID: 1162607722433842751}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -131,6 +132,7 @@ MonoBehaviour:
   spawnPointBullet: {fileID: 8489901242894617667}
   enemyStats: {fileID: 11400000, guid: 9c926a2386f3ac743905bf035fc0dc0c, type: 2}
   agent: {fileID: 7116771531642242373}
+  animator: {fileID: 0}
 --- !u!195 &7116771531642242373
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -153,6 +155,25 @@ NavMeshAgent:
   m_BaseOffset: 1.96
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &1162607722433842751
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489901242466351668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7a03287993fcd1842853f02b537ffe75, type: 3}
+  m_Controller: {fileID: 9100000, guid: f1bf277591d881847a34ff8ed9688dfc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8489901242894617667
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +259,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemigo_Simple
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 7a03287993fcd1842853f02b537ffe75, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7a03287993fcd1842853f02b537ffe75, type: 3}
 --- !u!4 &152194154207533784 stripped
 Transform:

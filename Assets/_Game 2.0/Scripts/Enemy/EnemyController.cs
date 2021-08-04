@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour, IDamagable
     [SerializeField] GameObject spawnPointBullet = default;
     [SerializeField] EnemyStats enemyStats = default;
     [SerializeField] NavMeshAgent agent = default;
-
+    [SerializeField] Animator animator;
     //private EnemyStats currentStats;
 
     private WaveController waveController;
@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour, IDamagable
         rb = GetComponent<Rigidbody>();
         //ChangeSpawnPoint(this.gameObject.transform.position);
         TransitionToState(HuntState);
+        animator = this.GetComponent<Animator>();
     }
 
     public void Init(WaveController waveController)
@@ -75,6 +76,14 @@ public class EnemyController : MonoBehaviour, IDamagable
     {
         GameObject bullet = Instantiate(enemyStats.bullet, spawnPointBullet.transform.position, spawnPointBullet.transform.rotation);
         bullet.GetComponent<BulletEnemy>().Init(enemyStats.damage);
+        animator.SetBool("Shooting", true);
+        StartCoroutine(Shooting());
+    }
+
+    IEnumerator Shooting()
+    {
+        yield return new WaitForSeconds(.1f);
+        animator.SetBool("Shooting", false);
     }
 
     public void Damage(int amount)
@@ -83,6 +92,7 @@ public class EnemyController : MonoBehaviour, IDamagable
 
         if (life <= 0)
         {
+            animator.SetTrigger("Hit");
             waveController.KilledEnemy();
             FindObjectOfType<MinionController>().ReloadUlti();
             Destroy(this.gameObject);
