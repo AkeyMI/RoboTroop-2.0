@@ -21,6 +21,13 @@ public class Shield : MonoBehaviour
     {
         animator.SetBool("HitShield", true);
         shieldController.ShieldDamage(amount);
+        StartCoroutine(ShieldAnimationHit());
+        //animator.SetBool("HitShield", false);
+    }
+
+    private IEnumerator ShieldAnimationHit()
+    {
+        yield return new WaitForSeconds(0.1f);
         animator.SetBool("HitShield", false);
     }
 }

@@ -12,6 +12,8 @@ public class ShieldController : MonoBehaviour
     private int currentLifeShield;
     private bool shieldIsBroken;
 
+    private bool shieldIsFixingUp;
+
     private void Start()
     {
         shield.GetComponent<Shield>().Init(this);
@@ -36,7 +38,12 @@ public class ShieldController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(FixShield());
+            if (!shieldIsFixingUp)
+            {
+                StartCoroutine(FixShield());
+                animator.SetBool("HoldingShield", false);
+                OffShield();
+            }
         }
     }
 
@@ -52,9 +59,11 @@ public class ShieldController : MonoBehaviour
 
     IEnumerator FixShield()
     {
+        shieldIsFixingUp = true;
         yield return new WaitForSeconds(timeToReloadShield);
-
+        currentLifeShield = lifeShield;
         shieldIsBroken = false;
+        shieldIsFixingUp = false;
     }
 
     private void UseShield()

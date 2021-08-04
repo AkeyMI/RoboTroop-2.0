@@ -27,7 +27,6 @@ public class BulletEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Player Hit");
         if (other.CompareTag("Nave"))
         {
             other.GetComponent<NaveController>().Damage(damage);
